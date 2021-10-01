@@ -1,0 +1,18 @@
+.post-stats-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 1rem;
+}
+
+.post-likes {
+    cursor: pointer;
+}
+
+.post-likes:hover > i{
+    color: crimson;
+}
+
+.like-button{
+    color: crimson;
+}
