@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header } from 'semantic-ui-react';
-import { login } from '../../../Auth/Auth';
+import { useAuth } from '../../../Auth/Auth';
 import { SmartField, SmartForm } from '../../../Components/SmartForm';
 import {
     LoginSchema,
@@ -8,11 +8,14 @@ import {
 } from '../../../validations/UserSchemas';
 
 export const SignIn = () => {
+    const { signIn } = useAuth();
     return (
         <div>
             <Header>Sign In</Header>
             <SmartForm
-                onSubmit={login}
+                onSubmit={(data) => {
+                    signIn(data.userName, data.password);
+                }}
                 schema={LoginSchema}
                 initialValues={LoginInitialValues}
                 buttonProps={{ content: 'Sign In', primary: true }}

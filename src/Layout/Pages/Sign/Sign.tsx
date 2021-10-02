@@ -1,13 +1,14 @@
 import React, { FC } from 'react';
-import { Divider, Grid, GridColumn, GridRow, Segment } from 'semantic-ui-react';
+import { Divider, Grid, Segment } from 'semantic-ui-react';
 import { SignIn } from './SignIn';
 import { SignUp } from './SignUp';
 import './Sign.css';
 import { useEffect } from 'react';
+import cookie from 'react-cookies';
 
 export const Sign: FC = () => {
     useEffect(() => {
-        let isAuthenticated = localStorage.getItem('isAuthenticated');
+        let isAuthenticated = cookie.load('access_token');
         if (isAuthenticated) {
             window.location.pathname = '/';
         }

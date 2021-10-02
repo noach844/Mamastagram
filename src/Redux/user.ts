@@ -10,7 +10,9 @@ interface UserState {
     value: userInterface;
 }
 
-const initialState: UserState = { value: { name: '', age: 0, email: '' } };
+const initialState: UserState = {
+    value: { userId: '', username: '', email: '' },
+};
 
 export const userSlice = createSlice({
     name: 'user',
